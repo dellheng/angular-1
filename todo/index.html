@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="todoApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>todo</title>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="todo.js"></script>
+    <link rel="stylesheet" href="todo.css"/>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico"/>
+</head>
+
+<body>
+    <h2>Todo</h2>
+    <div ng-controller="TodoController">
+        <span>{{remaining()}} of {{todos.length}} remaning</span>
+        [<a href="" ng-click="archive()">archive</a>]
+        <ul class="unstyled">
+            <li ng-repeat="todo in todos">
+                <input type="checkbox" ng-model="todo.done"/>
+                <span class="done-{{todo.done}}">{{todo.text}}</span>
+            </li>
+
+            <form ng-submit="addTodo()">
+                <input type="text" size="30" placeholder="add new todo here" ng-model="todoText">
+                <input type="submit" value="add" class="btn-primary">
+            </form>
+        </ul>
+    </div>
+</body>
+
+</html>
